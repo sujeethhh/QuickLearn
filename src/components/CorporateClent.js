@@ -111,7 +111,7 @@ export default function CorporateClient() {
                   className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.5] sm:leading-[1.6] mb-6 sm:mb-8 md:mb-10 text-white/85 max-w-4xl font-light tracking-wide"
                   style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
                 >
-                  Empower your workforce with industry-leading training programs. Transform your organization's capabilities with our comprehensive corporate training solutions.
+                  Empower your workforce with industry-leading training programs. Transform your organization&apos;s capabilities with our comprehensive corporate training solutions.
                 </motion.p>
 
                 {/* CTA Buttons */}
@@ -222,7 +222,7 @@ export default function CorporateClient() {
               Our Training <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Categories</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive training programs across multiple domains to enhance your team's capabilities
+              Comprehensive training programs across multiple domains to enhance your team&apos;s capabilities
             </p>
           </motion.div>
 
@@ -317,7 +317,7 @@ export default function CorporateClient() {
               Training <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Packages</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Flexible training solutions designed to fit your organization's needs and budget
+              Flexible training solutions designed to fit your organization&apos;s needs and budget
             </p>
           </motion.div>
 
@@ -369,9 +369,8 @@ export default function CorporateClient() {
                 color: "from-emerald-500 to-teal-500"
               }
             ].map((pkg, index) => (
-              <Link href="/Contact">
+              <Link key={index} href="/Contact">
               <motion.div
-                key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

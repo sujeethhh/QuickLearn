@@ -306,7 +306,7 @@ export default function AboutPageHybrid() {
                 whileHover={{ scale: 1.01, color: "#374151" }}
                 transition={{ duration: 0.2 }}
               >
-                At QuickLearn Systems, we don't just deliver training — we create success
+                At QuickLearn Systems, we don&apos;t just deliver training — we create success
                 stories by shaping skills, strengthening knowledge, and supporting growth at
                 every step of your professional journey.
               </motion.p>

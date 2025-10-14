@@ -1,3 +1,4 @@
+"use client";
 import Headers from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
@@ -121,7 +122,7 @@ export default function CSM() {
                 whileHover={{ scale: 1.01, color: "#374151" }}
                 transition={{ duration: 0.2 }}
               >
-                The Certified ScrumMaster® (CSM®) course is a highly interactive, 2-day workshop where you'll learn the Scrum framework and gain an understanding of team roles, events, and artifacts. This course is taught by a Certified Scrum Trainer® (CST®) and includes experiential exercises designed to reinforce Scrum concepts.
+                The Certified ScrumMaster® (CSM®) course is a highly interactive, 2-day workshop where you&apos;ll learn the Scrum framework and gain an understanding of team roles, events, and artifacts. This course is taught by a Certified Scrum Trainer® (CST®) and includes experiential exercises designed to reinforce Scrum concepts.
               </motion.p>
               <motion.p
                 className="text-gray-700 leading-relaxed mb-6 text-justify"
@@ -129,7 +130,7 @@ export default function CSM() {
                 whileHover={{ scale: 1.01, color: "#374151" }}
                 transition={{ duration: 0.2 }}
               >
-                As a Certified ScrumMaster, you'll help the Scrum Team perform at their highest level. CSMs also protect the team from both internal and external distractions. The CSM course focuses on providing students with an understanding of Scrum roles, events, and artifacts.
+                As a Certified ScrumMaster, you&apos;ll help the Scrum Team perform at their highest level. CSMs also protect the team from both internal and external distractions. The CSM course focuses on providing students with an understanding of Scrum roles, events, and artifacts.
               </motion.p>
               <motion.p
                 className="text-gray-700 leading-relaxed mb-6 text-justify"

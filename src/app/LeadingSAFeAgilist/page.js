@@ -1,3 +1,4 @@
+"use client";
 import Headers from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
@@ -129,7 +130,7 @@ export default function LeadingSAFeAgilist() {
                 whileHover={{ scale: 1.01, color: "#374151" }}
                 transition={{ duration: 0.2 }}
               >
-                Attendees will gain an understanding of the Lean-Agile mindset, why it's so effective in today's adapt-or-die marketplace, and what it means to lead a Lean-Agile transformation. They'll also learn how to build and support Agile teams and programs, empower a Lean Portfolio, build a Continuous Delivery Pipeline and DevOps culture, and coordinate large solutions.
+                Attendees will gain an understanding of the Lean-Agile mindset, why it&apos;s so effective in today&apos;s adapt-or-die marketplace, and what it means to lead a Lean-Agile transformation. They&apos;ll also learn how to build and support Agile teams and programs, empower a Lean Portfolio, build a Continuous Delivery Pipeline and DevOps culture, and coordinate large solutions.
               </motion.p>
               <motion.p
                 className="text-gray-700 leading-relaxed mb-6 text-justify"

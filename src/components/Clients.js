@@ -68,7 +68,7 @@ export default function Clients({clients=[]}) {
             className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            Join the world's leading organizations who trust QuickLearn Learning to advance their teams' 
+            Join the world&apos;s leading organizations who trust QuickLearn Learning to advance their teams&apos; 
             professional development and drive business success.
           </motion.p>
         </motion.div>

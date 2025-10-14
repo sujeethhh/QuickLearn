@@ -501,7 +501,7 @@ ${emailForm.message}
                           </div>
                           <div>
                             <h3 className="font-semibold text-gray-800">Send us an Email</h3>
-                            <p className="text-sm text-gray-600">Fill out the form below and we'll get back to you</p>
+                            <p className="text-sm text-gray-600">Fill out the form below and we&apos;ll get back to you</p>
                           </div>
                         </div>
                       </div>
