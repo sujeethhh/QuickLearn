@@ -33,6 +33,12 @@ export default function LiveChat() {
   const messagesEndRef = useRef(null);
   const router = useRouter();
 
+  // Debug: Log when component mounts
+  useEffect(() => {
+    console.log('LiveChat component mounted');
+    console.log('Is mobile:', /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+  }, []);
+
   // Contact options
   const contactOptions = [
     {
@@ -140,6 +146,35 @@ ${emailForm.message}
 
   return (
     <>
+      {/* Simple Mobile-First Chat Button */}
+      {!isOpen && (
+        <div
+          className="fixed bottom-4 right-4 z-[9999]"
+          style={{
+            position: 'fixed',
+            bottom: '16px',
+            right: '16px',
+            zIndex: 9999
+          }}
+        >
+          <button
+            onClick={() => {
+              console.log('Simple button clicked!');
+              setIsOpen(true);
+            }}
+            className="bg-blue-600 text-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center text-2xl hover:bg-blue-700 transition-colors"
+            style={{
+              WebkitTapHighlightColor: 'transparent',
+              touchAction: 'manipulation',
+              border: 'none',
+              outline: 'none'
+            }}
+          >
+            💬
+          </button>
+        </div>
+      )}
+
       {/* Chat Toggle Button with Enhanced Effects */}
       <AnimatePresence>
         {!isOpen && (
@@ -148,8 +183,30 @@ ${emailForm.message}
             animate={{ scale: 1, opacity: 1, rotate: 0 }}
             exit={{ scale: 0, opacity: 0, rotate: 180 }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="fixed bottom-6 right-6 z-50"
+            className="fixed bottom-4 right-4 z-[9999] sm:bottom-6 sm:right-6"
+            style={{ 
+              position: 'fixed',
+              bottom: '16px',
+              right: '16px',
+              zIndex: 9999,
+              pointerEvents: 'auto'
+            }}
           >
+            {/* Simple fallback button for mobile debugging */}
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Fallback button clicked!');
+                toggleChat();
+              }}
+              className="absolute inset-0 w-full h-full bg-transparent z-[10000] cursor-pointer"
+              style={{
+                WebkitTapHighlightColor: 'transparent',
+                touchAction: 'manipulation'
+              }}
+            />
+            
             {/* Enquiry Message Bubble */}
             <AnimatePresence>
               {showEnquiryBubble && (
@@ -193,8 +250,22 @@ ${emailForm.message}
 
             {/* Enhanced Chat Button */}
             <motion.button
-              onClick={toggleChat}
-              className="relative bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 text-white p-3 sm:p-4 rounded-full shadow-2xl hover:shadow-blue-500/40 transition-all duration-300 group overflow-hidden touch-manipulation"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Chat button clicked!'); // Debug log
+                toggleChat();
+              }}
+              onTouchStart={(e) => {
+                e.preventDefault();
+                console.log('Touch started on chat button'); // Debug log
+              }}
+              className="relative bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 text-white p-4 rounded-full shadow-2xl hover:shadow-blue-500/40 transition-all duration-300 group overflow-hidden touch-manipulation min-w-[64px] min-h-[64px] flex items-center justify-center active:scale-95 cursor-pointer"
+              style={{
+                WebkitTapHighlightColor: 'transparent',
+                userSelect: 'none',
+                touchAction: 'manipulation'
+              }}
               whileHover={{ scale: 1.08, y: -3 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -310,8 +381,15 @@ ${emailForm.message}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 50 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[95vw] sm:w-[400px] md:w-96 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100"
-            style={{ height: isMinimized ? "70px" : "calc(85vh - 20px)", maxHeight: "600px" }}
+            className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999] w-[95vw] sm:w-[400px] md:w-96 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100"
+            style={{ 
+              height: isMinimized ? "70px" : "calc(85vh - 20px)", 
+              maxHeight: "600px",
+              position: 'fixed',
+              bottom: '16px',
+              right: '16px',
+              zIndex: 9999
+            }}
           >
             {/* Enhanced Header */}
             <motion.div
