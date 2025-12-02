@@ -24,9 +24,7 @@ export default function Footer() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
     console.log("Form submitted:", formData);
-    // Reset form
     setFormData({
       name: "",
       email: "",
@@ -36,221 +34,178 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white py-8 sm:py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <Grid container spacing={{ xs: 3, sm: 4, lg: 5 }}>
+    <footer className="bg-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <Grid container spacing={4}>
           
-          {/* Popular Courses */}
-          <Grid item xs={12} sm={6} lg={3}>
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">Popular Courses</h3>
-            <ul className="space-y-2 sm:space-y-3">
+          {/* Popular Courses - Column 1 */}
+          <Grid item xs={12} sm={6} lg={4}>
+            <h3 className="text-xl font-bold text-white mb-6">Popular Courses</h3>
+            <ul className="space-y-3">
               <li>
-                <Link href="/ITL4Management" className="text-white/90 hover:text-white transition-colors duration-300 text-sm sm:text-base leading-relaxed">
-                  ITIL 4 Foundation Certification
+                <Link href="/ITL4Management" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block">
+                  ITIL 4 Foundation
                 </Link>
               </li>
               <li>
-                <Link href="/PScrumM1" className="text-white/90 hover:text-white transition-colors duration-300 text-sm sm:text-base leading-relaxed">
-                  PSM Certification
+                <Link href="/PScrumM1" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block">
+                  Professional Scrum Master
                 </Link>
               </li>
               <li>
-                <Link href="/LeadingSAFeAgilist" className="text-white/90 hover:text-white transition-colors duration-300 text-sm sm:text-base leading-relaxed">
-                  SAFe Agile 5 Certification
+                <Link href="/LeadingSAFeAgilist" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block">
+                  SAFe Agile 5
                 </Link>
               </li>
               <li>
-                <Link href="/PMP" className="text-white/90 hover:text-white transition-colors duration-300 text-sm sm:text-base leading-relaxed">
+                <Link href="/PMP" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block">
                   PMP Certification
                 </Link>
               </li>
               <li>
-                <Link href="/Prince2Foundation" className="text-white/90 hover:text-white transition-colors duration-300 text-sm sm:text-base leading-relaxed">
-                  Prince2 Foundation Certification
+                <Link href="/Prince2Foundation" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block">
+                  Prince2 Foundation
                 </Link>
               </li>
               <li>
-                <Link href="/Prince2Foundation" className="text-white/90 hover:text-white transition-colors duration-300 text-sm sm:text-base leading-relaxed">
-                  Prince2 Practitioner Certification
+                <Link href="/Prince2Practitioner" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block">
+                  Prince2 Practitioner
                 </Link>
               </li>
               <li>
-                <Link href="/Prince2Foundation" className="text-white/90 hover:text-white transition-colors duration-300 text-sm sm:text-base leading-relaxed">
-                  Prince2 Agile Practitioner Certification
+                <Link href="/LeanSSGB" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block">
+                  Lean Six Sigma Green Belt
                 </Link>
               </li>
               <li>
-                <Link href="/LeanSSGB" className="text-white/90 hover:text-white transition-colors duration-300 text-sm sm:text-base leading-relaxed">
-                  Lean Six Sigma Green Belt Certification
-                </Link>
-              </li>
-              <li>
-                <Link href="/DevopsFoundation" className="text-white/90 hover:text-white transition-colors duration-300 text-sm sm:text-base leading-relaxed">
-                  DevOps Foundation Certification
+                <Link href="/DevopsFoundation" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block">
+                  DevOps Foundation
                 </Link>
               </li>
             </ul>
           </Grid>
 
-          {/* Find us on & Payment Options */}
-          <Grid item xs={12} sm={6} lg={3}>
-            {/* Social Media */}
-            <div className="mb-6 sm:mb-8">
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-4">Find us on</h3>
-              <div className="flex gap-3 sm:gap-4">
-                <a
-                  href="https://www.facebook.com/quicklearnsystems"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  aria-label="Facebook"
-                >
-                  <FaFacebookF className="w-5 h-5 text-white" />
-                </a>
-                <a
-                  href="https://x.com/quicklearnsys"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  aria-label="Twitter"
-                >
-                  <FaTwitter className="w-5 h-5 text-white" />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  aria-label="Google Plus"
-                >
-                  <FaGooglePlusG className="w-5 h-5 text-white" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/quicklearn-systems-1494ba12a"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  aria-label="LinkedIn"
-                >
-                  <FaLinkedinIn className="w-5 h-5 text-white" />
-                </a>
-              </div>
-            </div>
+          {/* Company & Contact - Column 2 */}
+          <Grid item xs={12} sm={6} lg={4}>
+            <h3 className="text-xl font-bold text-white mb-6">Company</h3>
+            <ul className="space-y-3 mb-8">
+              <li>
+                <Link href="/about" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block">
+                  All Courses
+                </Link>
+              </li>
+              <li>
+                <Link href="/Events" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block">
+                  Upcoming Events
+                </Link>
+              </li>
+              <li>
+                <Link href="/Contact" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm block">
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
 
             {/* Payment Options */}
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-4">Payment Options</h3>
-              <p className="text-white/90 text-sm mb-3">We accept payment by Cash, Cheque,</p>
-              <p className="text-white/90 text-sm mb-4">Online Fund Transfer and Credit Cards</p>
-              <div className="flex gap-3 flex-wrap">
-                <div className="w-12 h-8 bg-white rounded flex items-center justify-center">
+              <h3 className="text-xl font-bold text-white mb-6">Payment Options</h3>
+              <p className="text-gray-300 text-sm mb-4">Cash, Cheque, Online Transfer & Credit Cards</p>
+              <div className="flex gap-2 flex-wrap">
+                <div className="w-12 h-8 bg-white rounded flex items-center justify-center shadow-sm">
                   <SiVisa className="w-8 h-5 text-blue-600" />
                 </div>
-                <div className="w-12 h-8 bg-white rounded flex items-center justify-center">
+                <div className="w-12 h-8 bg-white rounded flex items-center justify-center shadow-sm">
                   <SiMastercard className="w-8 h-5 text-red-500" />
                 </div>
-                <div className="w-12 h-8 bg-white rounded flex items-center justify-center">
-                  <FaUniversity className="w-6 h-4 text-gray-700" />
+                <div className="w-12 h-8 bg-white rounded flex items-center justify-center shadow-sm">
+                  <FaUniversity className="w-5 h-4 text-gray-700" />
                 </div>
-                <div className="w-12 h-8 bg-white rounded flex items-center justify-center">
+                <div className="w-12 h-8 bg-white rounded flex items-center justify-center shadow-sm">
                   <FaPaypal className="w-6 h-4 text-blue-600" />
                 </div>
               </div>
             </div>
           </Grid>
 
-          {/* Company */}
-          <Grid item xs={12} sm={6} lg={3}>
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">Company</h3>
-            <ul className="space-y-2 sm:space-y-3">
-              <li>
-                <Link href="/about" className="text-white/90 hover:text-white transition-colors duration-300 text-sm sm:text-base">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/" className="text-white/90 hover:text-white transition-colors duration-300 text-sm sm:text-base">
-                  Courses
-                </Link>
-              </li>
-              <li>
-                <Link href="/Events" className="text-white/90 hover:text-white transition-colors duration-300 text-sm sm:text-base">
-                  Upcoming Events
-                </Link>
-              </li>
-              <li>
-                <Link href="/Contact" className="text-white/90 hover:text-white transition-colors duration-300 text-sm sm:text-base">
-                  Contact Us
-                </Link>
-              </li>
-              
-            </ul>
+          {/* Connect With Us - Column 3 */}
+          <Grid item xs={12} sm={6} lg={4}>
+            <h3 className="text-xl font-bold text-white mb-6">Connect With Us</h3>
+            <div className="flex gap-3 mb-8">
+              <a
+                href="https://www.facebook.com/quicklearnsystems"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-all duration-300"
+                aria-label="Facebook"
+              >
+                <FaFacebookF className="w-4 h-4 text-white" />
+              </a>
+              <a
+                href="https://x.com/quicklearnsys"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-800 hover:bg-blue-400 rounded-lg flex items-center justify-center transition-all duration-300"
+                aria-label="Twitter"
+              >
+                <FaTwitter className="w-4 h-4 text-white" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 bg-gray-800 hover:bg-red-600 rounded-lg flex items-center justify-center transition-all duration-300"
+                aria-label="Google Plus"
+              >
+                <FaGooglePlusG className="w-4 h-4 text-white" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/quicklearn-systems-1494ba12a"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-800 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-all duration-300"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedinIn className="w-4 h-4 text-white" />
+              </a>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-xl font-bold text-white mb-6">Contact Info</h3>
+              <ul className="space-y-3 text-gray-300 text-sm">
+                <li>
+                  <span className="block font-semibold text-white mb-1">Email:</span>
+                  <a href="mailto:info@quicklearnsys.com" className="hover:text-white transition-colors">
+                    info@quicklearnsys.com
+                  </a>
+                </li>
+                <li>
+                  <span className="block font-semibold text-white mb-1">Phone:</span>
+                  <a href="tel:+1234567890" className="hover:text-white transition-colors">
+                    +1 (234) 567-890
+                  </a>
+                </li>
+                <li>
+                  <span className="block font-semibold text-white mb-1">Address:</span>
+                  <span className="block">QuickLearn Systems</span>
+                  <span className="block">Training Center</span>
+                </li>
+              </ul>
+            </div>
           </Grid>
 
-          {/* Quick Enquiry */}
-          <Grid item xs={12} sm={6} lg={3}>
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">Quick Enquiry</h3>
-            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
-              <Grid container spacing={1.5}>
-                <Grid item xs={12} sm={6}>
-                  <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="w-full px-3 py-2 rounded-lg bg-gray-800 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
-                  required
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 rounded-lg bg-gray-800 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
-                    required
-                  />
-                </Grid>
-              </Grid>
-              <input
-                type="tel"
-                name="mobile"
-                placeholder="Mobile Number"
-                value={formData.mobile}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 rounded-lg bg-gray-800 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
-                required
-              />
-              <textarea
-                name="comment"
-                placeholder="Comment"
-                rows="4"
-                value={formData.comment}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 rounded-lg bg-gray-800 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm resize-none"
-                required
-              ></textarea>
-              <button
-                type="submit"
-                className="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-600 text-sm sm:text-base"
-              >
-                Submit
-              </button>
-            </form>
-          </Grid>
+
         </Grid>
 
         {/* Copyright */}
-        <Grid container>
-          <Grid item xs={12}>
-            <div className="border-t border-gray-700 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center">
-              <p className="text-gray-400 text-xs sm:text-sm">
-                © 2018-2019 - QuickLearn Systems. All Rights Reserved. The certification names are thetrademarks oftheir respective owners.
-              </p>
-            </div>
-          </Grid>
-        </Grid>
+        <div className="border-t border-gray-800 mt-12 pt-8">
+          <p className="text-gray-400 text-sm text-center">
+            © 2018-2025 QuickLearn Systems. All Rights Reserved. The certification names are the trademarks of their respective owners.
+          </p>
+        </div>
       </div>
     </footer>
   );

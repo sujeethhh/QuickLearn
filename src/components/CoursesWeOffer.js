@@ -3,6 +3,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Search, BookOpen, Users, Clock, Star, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+
 
 export default function CoursesWeOffer() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -1019,85 +1024,81 @@ export default function CoursesWeOffer() {
       <div className="container mx-auto px-4 sm:px-6">
 
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-16"
-        >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 font-serif">
-            Professional <span className="bg-gradient-to-r from-gray-600 via-gray-700 to-slate-800 bg-clip-text text-transparent">Courses</span>
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Advance your career with industry-leading certifications and expert-led training programs
-          </p>
-        </motion.div>
+        <Grid container justifyContent="center" className="mb-12 sm:mb-16">
+  <Grid item xs={12} md={10} lg={8}>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="text-center"
+    >
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 font-serif">
+        Professional <span className="bg-gradient-to-r from-gray-600 via-gray-700 to-slate-800 bg-clip-text text-transparent">Courses</span>
+      </h2>
 
-        {/* Search Control and Auto-scroll Status */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col items-center gap-4 mb-8 sm:mb-12"
-        >
-          <div className="relative w-full max-w-md">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
-            <input
-              type="text"
-              placeholder="Search courses..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-9 sm:pl-10 pr-4 py-2 sm:py-3 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full text-sm sm:text-base"
-            />
-          </div>
+      <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+        Advance your career with industry-leading certifications and expert-led training programs
+      </p>
+    </motion.div>
+  </Grid>
+</Grid>
 
-          {/* Auto-scroll Status and Reset */}
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-            <div className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium ${isAutoScrolling
-              ? 'bg-green-100 text-green-700'
-              : 'bg-orange-100 text-orange-700'
-              }`}>
-              <div className={`w-2 h-2 rounded-full ${isAutoScrolling ? 'bg-green-500' : 'bg-orange-500'
-                }`} />
-              {isAutoScrolling ? 'Auto-scrolling' : 'Manual mode'}
-            </div>
 
-            {!isAutoScrolling && (
-              <motion.button
-                onClick={() => setIsAutoScrolling(true)}
-                className="px-3 sm:px-4 py-2 bg-blue-600 text-white rounded-full text-xs sm:text-sm font-medium hover:bg-blue-700 transition-colors duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Resume Auto-scroll
-              </motion.button>
-            )}
-          </div>
-        </motion.div>
+        {/* Search Bar */}
+        <Grid container justifyContent="center" className="mb-8 sm:mb-12">
+          <Grid item xs={12} md={8} lg={6}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <div className="relative bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <input
+                  type="text"
+                  placeholder="Search for courses, certifications, or topics..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-14 pr-5 py-4 text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
+                />
+                {searchTerm && (
+                  <button
+                    onClick={() => setSearchTerm("")}
+                    className="absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+            </motion.div>
+          </Grid>
+        </Grid>
+
 
         {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-4"
-        >
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveFilter(category)}
-              className={`px-3 sm:px-4 md:px-6 py-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm md:text-base ${activeFilter === category
-                ? 'bg-blue-600 text-white shadow-lg'
-                : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                }`}
-            >
-              {category}
-            </button>
-          ))}
-        </motion.div>
+        <Grid container justifyContent="center" spacing={2} className="mb-8 sm:mb-12 px-4">
+  {categories.map((category) => (
+    <Grid item key={category}>
+      <motion.button
+        onClick={() => setActiveFilter(category)}
+        className={`px-4 py-2 rounded-full font-medium text-sm transition-all ${
+          activeFilter === category
+            ? 'bg-blue-600 text-white shadow-md'
+            : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-100'
+        }`}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        {category}
+      </motion.button>
+    </Grid>
+  ))}
+</Grid>
 
         {/* Auto-scrolling Course Container with Navigation */}
         <motion.div
@@ -1136,7 +1137,7 @@ export default function CoursesWeOffer() {
             {/* Scrolling container */}
             <div
               ref={scrollRef}
-              className="flex gap-3 sm:gap-4 md:gap-6 overflow-x-auto py-4 scroll-smooth"
+              className="flex gap-4 overflow-x-auto py-4 scroll-smooth"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {/* Hide scrollbar */}
@@ -1150,14 +1151,14 @@ export default function CoursesWeOffer() {
               {[...filteredCourses, ...filteredCourses].map((course, index) => (
                 <motion.div
                   key={`${course.id}-${index}`}
-                  className="flex-shrink-0 w-80"
+                  className="flex-shrink-0"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 >
                   <Link href={course.href}>
-                    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 h-full w-72 sm:w-80 md:w-96 flex-shrink-0">
+                    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 h-full w-80 flex-shrink-0">
 
                       {/* Image */}
                       <div className="relative h-40 sm:h-44 md:h-48 overflow-hidden">

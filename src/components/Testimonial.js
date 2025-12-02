@@ -1,17 +1,17 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight} from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 
 export default function Testimonial({ testimonials }) {
   const [current, setCurrent] = useState(0);
 
-  // Auto-scroll every 6s
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 6000);
+    const interval = setInterval(() => nextSlide(), 6000);
     return () => clearInterval(interval);
   }, [current]);
 
@@ -20,118 +20,141 @@ export default function Testimonial({ testimonials }) {
 
   if (!testimonials || testimonials.length === 0) {
     return (
-      <div className="flex justify-center items-center h-64">
+      <Grid container justifyContent="center" alignItems="center" style={{ height: "16rem" }}>
         <p className="text-gray-500 text-lg animate-pulse">Loading testimonials...</p>
-      </div>
+      </Grid>
     );
   }
 
   const currentItem = testimonials[current];
 
   return (
-    <div className="relative w-[95%] mx-auto md:w-[90%] lg:w-[85%] xl:w-[80%] 
-bg-white/70 backdrop-blur-lg border border-blue-100/40 shadow-2xl rounded-3xl p-12 md:p-16">
-
-      {/* Floating gradient background glow */}
-      <div className="absolute -top-24 -right-24 w-72 h-72  opacity-30 blur-3xl rounded-full" />
-      <div className="absolute -bottom-24 -left-24 w-72 h-72  opacity-30 blur-3xl rounded-full" />
-
-      {/* Slide animation */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={current}
-          initial={{ opacity: 0, y: 40, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -40, scale: 0.95 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex flex-col md:flex-row items-center gap-10 relative z-10"
+    <div className="py-12 bg-gray-50">
+      <Container maxWidth="lg">
+        
+        {/* Section Title */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-10"
         >
-          {/* Left: text & details */}
-          <div className="flex-1 space-y-5">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="flex gap-1"
-            >
-              
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-gray-700 text-lg leading-relaxed italic"
-            >
-              “{currentItem.message}”
-            </motion.p>
-
-            <motion.h3
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="font-semibold text-gray-900 text-xl"
-            >
-              {currentItem.name}
-            </motion.h3>
-          </div>
-
-          {/* Right: image */}
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="w-full md:w-1/3 flex justify-center"
-          >
-            <div className="relative">
-              <motion.div
-                animate={{ rotate: [0, 2, -2, 0] }}
-                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                className="absolute inset-0 bg-blue-300 opacity-20 blur-2xl rounded-2xl"
-              />
-              <Image
-                src={currentItem.image}
-                alt={currentItem.name}
-                width={280}
-                height={280}
-                className="rounded-2xl shadow-2xl object-cover ring-4 ring-white/60"
-              />
-            </div>
-          </motion.div>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            What Our Students Say
+          </h2>
+          <div className="w-16 h-1 bg-blue-600 mx-auto" />
         </motion.div>
-      </AnimatePresence>
 
-      {/* Navigation arrows */}
-      <div className="absolute inset-x-0 flex justify-between items-center px-4">
-        <button
-          onClick={prevSlide}
-          className="bg-white/70 hover:bg-white text-gray-700 hover:text-blue-600 rounded-full p-2 shadow-lg transition-transform hover:scale-110 backdrop-blur-md"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="bg-white/70 hover:bg-white text-gray-700 hover:text-blue-600 rounded-full p-2 shadow-lg transition-transform hover:scale-110 backdrop-blur-md"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
-      </div>
+        {/* Testimonial Card */}
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+              className="p-8 md:p-10"
+            >
+              <Grid container spacing={4} alignItems="center">
+                
+                {/* Image */}
+                <Grid item xs={12} md={4}>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.1 }}
+                    className="flex justify-center"
+                  >
+                    <div className="relative">
+                      <Image
+                        src={currentItem.image}
+                        alt={currentItem.name}
+                        width={200}
+                        height={200}
+                        className="rounded-full object-cover shadow-xl"
+                      />
+                    </div>
+                  </motion.div>
+                </Grid>
 
-      {/* Dots */}
-      <div className="flex justify-center mt-8 gap-3">
-        {testimonials.map((_, i) => (
-          <motion.button
-            key={i}
-            onClick={() => setCurrent(i)}
-            whileHover={{ scale: 1.3 }}
-            className={`w-3.5 h-3.5 rounded-full transition-all duration-300 ${
-              i === current
-                ? "bg-blue-600 shadow-[0_0_8px_2px_rgba(37,99,235,0.5)]"
-                : "bg-gray-300 hover:bg-blue-400"
-            }`}
-          />
-        ))}
-      </div>
+                {/* Content */}
+                <Grid item xs={12} md={8}>
+                  <div className="space-y-4">
+                    
+                    {/* Quote */}
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.2 }}
+                      className="text-gray-700 text-lg md:text-xl leading-relaxed italic"
+                    >
+                      "{currentItem.message}"
+                    </motion.p>
+
+                    {/* Name */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.3 }}
+                    >
+                      <h3 className="font-semibold text-gray-900 text-lg">
+                        {currentItem.name}
+                      </h3>
+                      {currentItem.role && (
+                        <p className="text-gray-500 text-sm mt-1">{currentItem.role}</p>
+                      )}
+                    </motion.div>
+
+                  </div>
+                </Grid>
+
+              </Grid>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Navigation */}
+          <div className="border-t border-gray-100 px-8 py-4 flex items-center justify-between">
+            
+            {/* Arrow Buttons */}
+            <div className="flex gap-2">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={prevSlide}
+                className="bg-gray-100 hover:bg-blue-600 hover:text-white text-gray-700 rounded-full p-2 transition-colors duration-300"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={nextSlide}
+                className="bg-gray-100 hover:bg-blue-600 hover:text-white text-gray-700 rounded-full p-2 transition-colors duration-300"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </motion.button>
+            </div>
+
+            {/* Dots */}
+            <div className="flex gap-2">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    i === current
+                      ? "w-8 bg-blue-600"
+                      : "w-2 bg-gray-300 hover:bg-gray-400"
+                  }`}
+                />
+              ))}
+            </div>
+
+          </div>
+        </div>
+
+      </Container>
     </div>
   );
 }
