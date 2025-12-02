@@ -3,6 +3,8 @@ import Headers from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollFloat from "@/components/ui/ScroolReveal";
+import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 
 export default function AboutPageHybrid() {
   // Same animation variants as Hero component
@@ -99,11 +101,13 @@ export default function AboutPageHybrid() {
 
 
   return (
-    <>
+    <Grid container direction="column" spacing={6}>
+    <div className="flex flex-col">
       <Headers />
 
       {/* Hero Section - Same style as Hero component */}
-      <section className="relative h-[600px] w-full overflow-hidden bg-gray-900">
+      <Grid item xs={12}>
+      <section className="relative h-[600px]  overflow-hidden bg-gray-900">
         {/* Background with same animations as Hero */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -162,6 +166,7 @@ export default function AboutPageHybrid() {
           </div>
         </div>
       </section>
+      </Grid>
 
       {/* Enhanced ScrollFloat Section */}
       <section className=" bg-gradient-to-br from-slate-50 via-gray-50 to-stone-50 relative overflow-hidden">
@@ -348,7 +353,9 @@ export default function AboutPageHybrid() {
       {/* Mission & Values Section */}
       <section className="w-full bg-gradient-to-br from-stone-50 via-slate-50 to-gray-50 py-12 px-4 md:px-8">
         <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <Grid container spacing={6} alignItems="flex-start">
+
+
             {/* Mission & Values Content */}
             <motion.div
               className="lg:col-span-8"
@@ -482,11 +489,12 @@ export default function AboutPageHybrid() {
                 </div>
               </motion.div>
             </motion.div>
-          </div>
+          </Grid>
         </div>
       </section>
 
       <Footer />
-    </>
+    </div>
+    </Grid>
   );
 }

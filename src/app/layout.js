@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,17 +26,20 @@ export default function RootLayout({ children }) {
         {children}
 
         {/* Tawk.to Script */}
-        <script
+        <Script
+          id="tawk-to-widget"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-              (function(){
-                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-                s1.async=true;
-                s1.src='https://embed.tawk.to/692f312c0962891980a7a019/1jbg5g5oe';
-                s1.charset='UTF-8';
-                s1.setAttribute('crossorigin','*');
-                s0.parentNode.insertBefore(s1,s0);
+              var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+              (function () {
+                var s1 = document.createElement("script");
+                var s0 = document.getElementsByTagName("script")[0];
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/692f312c0962891980a7a019/1jbg5g5oe';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin', '*');
+                s0.parentNode.insertBefore(s1, s0);
               })();
             `,
           }}
