@@ -10,13 +10,14 @@ import Container from "@mui/material/Container";
 export default function Testimonial({ testimonials }) {
   const [current, setCurrent] = useState(0);
 
+  const nextSlide = () => setCurrent((prev) => (prev + 1) % testimonials.length);
+  const prevSlide = () => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+
   useEffect(() => {
     const interval = setInterval(() => nextSlide(), 6000);
     return () => clearInterval(interval);
-  }, [current, nextSlide]);
-
-  const nextSlide = () => setCurrent((prev) => (prev + 1) % testimonials.length);
-  const prevSlide = () => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [current]);
 
   if (!testimonials || testimonials.length === 0) {
     return (
