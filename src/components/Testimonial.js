@@ -13,7 +13,7 @@ export default function Testimonial({ testimonials }) {
   useEffect(() => {
     const interval = setInterval(() => nextSlide(), 6000);
     return () => clearInterval(interval);
-  }, [current]);
+  }, [current, nextSlide]);
 
   const nextSlide = () => setCurrent((prev) => (prev + 1) % testimonials.length);
   const prevSlide = () => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
@@ -88,7 +88,7 @@ export default function Testimonial({ testimonials }) {
                       transition={{ delay: 0.2 }}
                       className="text-gray-700 text-lg md:text-xl leading-relaxed italic"
                     >
-                      "{currentItem.message}"
+                      &ldquo;{currentItem.message}&rdquo;
                     </motion.p>
 
                     {/* Name */}
