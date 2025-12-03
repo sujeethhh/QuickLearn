@@ -8,7 +8,7 @@ import LiveChat from "@/components/LiveChat";
 
 export default function HomePageClient({ testimonials, clients }) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       
       {/* Hero / Top Section */}
       <ClientHomeWrapper />
@@ -24,6 +24,7 @@ export default function HomePageClient({ testimonials, clients }) {
 
       {/* Live Chat */}
       <LiveChat />
+
     </div>
   );
 }

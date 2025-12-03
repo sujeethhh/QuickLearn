@@ -149,12 +149,12 @@ ${emailForm.message}
       {/* Simple Mobile-First Chat Button */}
       {!isOpen && (
         <div
-          className="fixed bottom-4 right-4 z-[9999]"
+          className="fixed bottom-4 left-4 z-[9998]"
           style={{
             position: 'fixed',
             bottom: '16px',
-            right: '16px',
-            zIndex: 9999
+            left: '16px',
+            zIndex: 9998
           }}
         >
           <button
@@ -183,12 +183,12 @@ ${emailForm.message}
             animate={{ scale: 1, opacity: 1, rotate: 0 }}
             exit={{ scale: 0, opacity: 0, rotate: 180 }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="fixed bottom-4 right-4 z-[9999] sm:bottom-6 sm:right-6"
+            className="fixed bottom-4 left-4 z-[9998] sm:bottom-6 sm:left-6"
             style={{ 
               position: 'fixed',
               bottom: '16px',
-              right: '16px',
-              zIndex: 9999,
+              left: '16px',
+              zIndex: 9998,
               pointerEvents: 'auto'
             }}
           >
@@ -211,11 +211,11 @@ ${emailForm.message}
             <AnimatePresence>
               {showEnquiryBubble && (
                 <motion.div
-                  initial={{ opacity: 0, x: 20, scale: 0.8 }}
+                  initial={{ opacity: 0, x: -20, scale: 0.8 }}
                   animate={{ opacity: 1, x: 0, scale: 1 }}
-                  exit={{ opacity: 0, x: 20, scale: 0.8 }}
+                  exit={{ opacity: 0, x: -20, scale: 0.8 }}
                   transition={{ delay: 2, duration: 0.5, ease: "easeOut" }}
-                  className="absolute bottom-full right-0 mb-4 bg-white rounded-2xl shadow-2xl p-4 max-w-sm border border-gray-100 backdrop-blur-sm"
+                  className="absolute bottom-full left-0 mb-4 bg-white rounded-2xl shadow-2xl p-4 max-w-sm border border-gray-100 backdrop-blur-sm"
                 >
                   <div className="flex items-start gap-3">
                     <motion.div
@@ -243,7 +243,7 @@ ${emailForm.message}
                     </button>
                   </div>
                   {/* Speech bubble arrow */}
-                  <div className="absolute bottom-0 right-6 transform translate-y-1/2 rotate-45 w-3 h-3 bg-white border-r border-b border-gray-100"></div>
+                  <div className="absolute bottom-0 left-6 transform translate-y-1/2 rotate-45 w-3 h-3 bg-white border-r border-b border-gray-100"></div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -381,14 +381,14 @@ ${emailForm.message}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 50 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999] w-[95vw] sm:w-[400px] md:w-96 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100"
+            className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-[9998] w-[95vw] sm:w-[400px] md:w-96 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100"
             style={{ 
               height: isMinimized ? "70px" : "calc(85vh - 20px)", 
               maxHeight: "600px",
               position: 'fixed',
               bottom: '16px',
-              right: '16px',
-              zIndex: 9999
+              left: '16px',
+              zIndex: 9998
             }}
           >
             {/* Enhanced Header */}

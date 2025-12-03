@@ -101,13 +101,13 @@ export default function AboutPageHybrid() {
 
 
   return (
-    <Grid container direction="column" spacing={6}>
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
+      
+      {/* Header */}
       <Headers />
 
       {/* Hero Section - Same style as Hero component */}
-      <Grid item xs={12}>
-      <section className="relative h-[600px]  overflow-hidden bg-gray-900">
+      <section className="relative h-[600px] w-full overflow-hidden bg-gray-900">
         {/* Background with same animations as Hero */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -166,7 +166,6 @@ export default function AboutPageHybrid() {
           </div>
         </div>
       </section>
-      </Grid>
 
       {/* Enhanced ScrollFloat Section */}
       <section className=" bg-gradient-to-br from-slate-50 via-gray-50 to-stone-50 relative overflow-hidden">
@@ -186,315 +185,323 @@ export default function AboutPageHybrid() {
       </section>
 
       {/* About Content Section */}
-      <section className="w-full bg-white  px-4 md:px-8">
-        <div className="container mx-auto max-w-7xl">
-          {/* Main Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <section className="w-full bg-white py-12 px-4 md:px-8">
+        <Container maxWidth="lg">
+          <Grid container spacing={4}>
+            
             {/* Left Text Content */}
-            <motion.div
-              className="lg:col-span-8"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={staggerTextVariants}
-            >
-              <motion.h2
-                className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 relative"
-                variants={headingVariants}
-                style={{ fontFamily: "'Playfair Display', serif" }}
-                whileHover={{ scale: 1.02, color: "#374151" }}
-                transition={{ duration: 0.3 }}
+            <Grid item xs={12} md={8}>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={staggerTextVariants}
               >
-                <span className="relative z-10">About QuickLearn Systems</span>
-                <motion.div
-                  className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-slate-700 to-stone-800 rounded-full"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "60%" }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                />
-              </motion.h2>
+                <motion.h2
+                  className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 relative"
+                  variants={headingVariants}
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                  whileHover={{ scale: 1.02, color: "#374151" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <span className="relative z-10">About QuickLearn Systems</span>
+                  <motion.div
+                    className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-slate-700 to-stone-800 rounded-full"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "60%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                  />
+                </motion.h2>
 
-              <motion.p
-                className="text-gray-700 leading-relaxed mb-6 text-justify"
-                variants={paragraphVariants}
-                style={{ fontFamily: "'Inter', sans-serif" }}
-                whileHover={{ scale: 1.01, color: "#374151" }}
-                transition={{ duration: 0.2 }}
-              >
-                QuickLearn Systems is a premier professional training and certification
-                provider, delivering top-quality learning solutions for the last 4 years.
-                With a strong commitment to excellence, QuickLearn has empowered thousands of
-                individuals and organizations to upgrade their skills and achieve career
-                success. Our comprehensive portfolio of world-class training includes online
-                learning, instructor-led classroom sessions, e-learning modules, and
-                customized corporate training programs designed to fit the evolving needs of
-                learners and businesses alike.
-              </motion.p>
+                <motion.p
+                  className="text-gray-700 leading-relaxed mb-6 text-justify"
+                  variants={paragraphVariants}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  whileHover={{ scale: 1.01, color: "#374151" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  QuickLearn Systems is a premier professional training and certification
+                  provider, delivering top-quality learning solutions for the last 4 years.
+                  With a strong commitment to excellence, QuickLearn has empowered thousands of
+                  individuals and organizations to upgrade their skills and achieve career
+                  success. Our comprehensive portfolio of world-class training includes online
+                  learning, instructor-led classroom sessions, e-learning modules, and
+                  customized corporate training programs designed to fit the evolving needs of
+                  learners and businesses alike.
+                </motion.p>
 
-              <motion.p
-                className="text-gray-700 leading-relaxed mb-4"
-                variants={paragraphVariants}
-                style={{ fontFamily: "'Inter', sans-serif" }}
-                whileHover={{ scale: 1.01, color: "#374151" }}
-                transition={{ duration: 0.2 }}
-              >
-                At QuickLearn, customer satisfaction, value for time, and return on
-                investment remain our top priorities. Every training program is carefully
-                tailored to meet individual and corporate requirements, ensuring that learners
-                gain not only theoretical knowledge but also practical skills that can be
-                applied immediately in real-world scenarios.
-              </motion.p>
+                <motion.p
+                  className="text-gray-700 leading-relaxed mb-4"
+                  variants={paragraphVariants}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  whileHover={{ scale: 1.01, color: "#374151" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  At QuickLearn, customer satisfaction, value for time, and return on
+                  investment remain our top priorities. Every training program is carefully
+                  tailored to meet individual and corporate requirements, ensuring that learners
+                  gain not only theoretical knowledge but also practical skills that can be
+                  applied immediately in real-world scenarios.
+                </motion.p>
 
-              <motion.p
-                className="text-gray-700 leading-relaxed mb-4"
-                variants={paragraphVariants}
-                style={{ fontFamily: "'Inter', sans-serif" }}
-                whileHover={{ scale: 1.01, color: "#374151" }}
-                transition={{ duration: 0.2 }}
-              >
-                We strongly believe in a learner-first approach, where understanding customer
-                challenges, career aspirations, and organizational goals plays a central role
-                in shaping our training solutions. By guiding learners with a structured
-                framework and providing personalized attention, we help them unlock their
-                potential and grow steadily up the career ladder.
-              </motion.p>
+                <motion.p
+                  className="text-gray-700 leading-relaxed mb-4"
+                  variants={paragraphVariants}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  whileHover={{ scale: 1.01, color: "#374151" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  We strongly believe in a learner-first approach, where understanding customer
+                  challenges, career aspirations, and organizational goals plays a central role
+                  in shaping our training solutions. By guiding learners with a structured
+                  framework and providing personalized attention, we help them unlock their
+                  potential and grow steadily up the career ladder.
+                </motion.p>
 
-              <motion.p
-                className="text-gray-700 leading-relaxed mb-4"
-                variants={paragraphVariants}
-                style={{ fontFamily: "'Inter', sans-serif" }}
-                whileHover={{ scale: 1.01, color: "#374151" }}
-                transition={{ duration: 0.2 }}
-              >
-                Our dedicated service and support team ensures a transparent, seamless, and
-                enriching learning journey. With a culture deeply rooted in professionalism,
-                ethics, and integrity, we continuously strive to maintain trust and deliver
-                value-driven services.
-              </motion.p>
+                <motion.p
+                  className="text-gray-700 leading-relaxed mb-4"
+                  variants={paragraphVariants}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  whileHover={{ scale: 1.01, color: "#374151" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  Our dedicated service and support team ensures a transparent, seamless, and
+                  enriching learning journey. With a culture deeply rooted in professionalism,
+                  ethics, and integrity, we continuously strive to maintain trust and deliver
+                  value-driven services.
+                </motion.p>
 
-              <motion.p
-                className="text-gray-700 leading-relaxed mb-4"
-                variants={paragraphVariants}
-                style={{ fontFamily: "'Inter', sans-serif" }}
-                whileHover={{ scale: 1.01, color: "#374151" }}
-                transition={{ duration: 0.2 }}
-              >
-                QuickLearn Systems is widely recognized as a leading training provider for
-                working professionals in specialized domains such as Project & Program
-                Management, Service Management, IT Governance & Architecture, and Quality
-                Management. We offer flexible learning modes to suit every preference,
-                including live online training (instructor-led virtual classes), classroom
-                training (instructor-led physical sessions), e-learning (self-paced modules),
-                and customized corporate training programs.
-              </motion.p>
+                <motion.p
+                  className="text-gray-700 leading-relaxed mb-4"
+                  variants={paragraphVariants}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  whileHover={{ scale: 1.01, color: "#374151" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  QuickLearn Systems is widely recognized as a leading training provider for
+                  working professionals in specialized domains such as Project & Program
+                  Management, Service Management, IT Governance & Architecture, and Quality
+                  Management. We offer flexible learning modes to suit every preference,
+                  including live online training (instructor-led virtual classes), classroom
+                  training (instructor-led physical sessions), e-learning (self-paced modules),
+                  and customized corporate training programs.
+                </motion.p>
 
-              <motion.p
-                className="text-gray-700 leading-relaxed mb-4"
-                variants={paragraphVariants}
-                style={{ fontFamily: "'Inter', sans-serif" }}
-                whileHover={{ scale: 1.01, color: "#374151" }}
-                transition={{ duration: 0.2 }}
-              >
-                With physical and satellite training centers across India and globally,
-                QuickLearn Systems has established a strong presence in major metropolitan
-                cities and international markets. Whether you are an individual professional
-                seeking career advancement or a corporate organization aiming to upskill your
-                workforce, QuickLearn is your trusted partner for effective, impactful, and
-                result-oriented learning solutions.
-              </motion.p>
+                <motion.p
+                  className="text-gray-700 leading-relaxed mb-4"
+                  variants={paragraphVariants}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  whileHover={{ scale: 1.01, color: "#374151" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  With physical and satellite training centers across India and globally,
+                  QuickLearn Systems has established a strong presence in major metropolitan
+                  cities and international markets. Whether you are an individual professional
+                  seeking career advancement or a corporate organization aiming to upskill your
+                  workforce, QuickLearn is your trusted partner for effective, impactful, and
+                  result-oriented learning solutions.
+                </motion.p>
 
-              <motion.p
-                className="text-gray-700 leading-relaxed"
-                variants={paragraphVariants}
-                style={{ fontFamily: "'Inter', sans-serif" }}
-                whileHover={{ scale: 1.01, color: "#374151" }}
-                transition={{ duration: 0.2 }}
-              >
-                At QuickLearn Systems, we don&apos;t just deliver training — we create success
-                stories by shaping skills, strengthening knowledge, and supporting growth at
-                every step of your professional journey.
-              </motion.p>
-            </motion.div>
+                <motion.p
+                  className="text-gray-700 leading-relaxed"
+                  variants={paragraphVariants}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  whileHover={{ scale: 1.01, color: "#374151" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  At QuickLearn Systems, we don&apos;t just deliver training — we create success
+                  stories by shaping skills, strengthening knowledge, and supporting growth at
+                  every step of your professional journey.
+                </motion.p>
+              </motion.div>
+            </Grid>
 
             {/* Right Image - Sticky positioned */}
-            <motion.div
-              className="lg:col-span-4 sticky top-24"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={imageVariants}
-            >
-              <motion.img
-                src="/corporate.jpg"
-                alt="Corporate Training"
-                className="w-full rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              />
-
-              {/* Professional badge */}
+            <Grid item xs={12} md={4}>
               <motion.div
-                className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-xl p-4 border border-slate-200"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
+                className="sticky top-24"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={imageVariants}
               >
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-slate-800">4+</div>
-                  <div className="text-xs text-slate-600 font-medium">Years Experience</div>
-                </div>
+                <motion.img
+                  src="/corporate.jpg"
+                  alt="Corporate Training"
+                  className="w-full rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                />
+
+                {/* Professional badge */}
+                <motion.div
+                  className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-xl p-4 border border-slate-200"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-slate-800">4+</div>
+                    <div className="text-xs text-slate-600 font-medium">Years Experience</div>
+                  </div>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          </div>
-        </div>
+            </Grid>
+
+          </Grid>
+        </Container>
       </section>
 
       {/* Mission & Values Section */}
       <section className="w-full bg-gradient-to-br from-stone-50 via-slate-50 to-gray-50 py-12 px-4 md:px-8">
-        <div className="container mx-auto max-w-7xl">
-          <Grid container spacing={6} alignItems="flex-start">
-
+        <Container maxWidth="lg">
+          <Grid container spacing={4}>
 
             {/* Mission & Values Content */}
-            <motion.div
-              className="lg:col-span-8"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={staggerTextVariants}
-            >
-              {/* Mission */}
-              <motion.h2
-                className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 relative"
-                variants={headingVariants}
-                style={{ fontFamily: "'Playfair Display', serif" }}
-                whileHover={{ scale: 1.02, color: "#374151" }}
-                transition={{ duration: 0.3 }}
-              >
-                <span className="relative z-10">Mission</span>
-                <motion.div
-                  className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-slate-600 to-stone-700 rounded-full"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "40%" }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                />
-              </motion.h2>
-
-              <motion.p
-                className="text-gray-700 leading-relaxed mb-8 text-justify"
-                variants={paragraphVariants}
-                style={{ fontFamily: "'Inter', sans-serif" }}
-                whileHover={{ scale: 1.01, color: "#374151" }}
-                transition={{ duration: 0.2 }}
-              >
-                Where there is a will, there is only the A–Z way…
-                Enable customers with the knowledge capable to develop and enhance
-                their skills to create different endeavors to be a professional.
-                We offer flexible trainings, customized solutions designed to educate,
-                inspire, and motivate individuals and businesses to achieve your goals
-                and aspirations.
-              </motion.p>
-
-              {/* Values */}
-              <motion.h2
-                className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 relative"
-                variants={headingVariants}
-                style={{ fontFamily: "'Playfair Display', serif" }}
-                whileHover={{ scale: 1.02, color: "#374151" }}
-                transition={{ duration: 0.3 }}
-              >
-                <span className="relative z-10">Values</span>
-                <motion.div
-                  className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-stone-600 to-slate-700 rounded-full"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "35%" }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 0.7 }}
-                />
-              </motion.h2>
-
-              <motion.p
-                className="text-gray-700 leading-relaxed mb-6"
-                variants={paragraphVariants}
-                style={{ fontFamily: "'Inter', sans-serif" }}
-                whileHover={{ scale: 1.01, color: "#374151" }}
-                transition={{ duration: 0.2 }}
-              >
-                We at <span className="font-semibold text-slate-800">QuickLearn Systems</span>,
-                fully committed to help you succeed.
-              </motion.p>
-
-              <motion.ul
-                className="list-none pl-0 text-gray-700 space-y-3"
+            <Grid item xs={12} md={8}>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
                 variants={staggerTextVariants}
               >
-                {[
-                  { text: "Quality", desc: "teaching and learning." },
-                  { text: "Respect", desc: "and Care for all." },
-                  { text: "Customer Satisfaction", desc: "is our priority." },
-                  { text: "Continuous improvement", desc: "focus." },
-                  { text: "Long-term relationships", desc: "with our customers." }
-                ].map((item, index) => (
-                  <motion.li
-                    key={index}
-                    variants={wordSlideVariants}
-                    className="flex items-start gap-3 group"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <motion.div
-                      className="w-2 h-2 bg-gradient-to-r from-slate-700 to-stone-800 rounded-full mt-2 flex-shrink-0"
-                      whileHover={{ scale: 1.5 }}
+                {/* Mission */}
+                <motion.h2
+                  className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 relative"
+                  variants={headingVariants}
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                  whileHover={{ scale: 1.02, color: "#374151" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <span className="relative z-10">Mission</span>
+                  <motion.div
+                    className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-slate-600 to-stone-700 rounded-full"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "40%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                  />
+                </motion.h2>
+
+                <motion.p
+                  className="text-gray-700 leading-relaxed mb-8 text-justify"
+                  variants={paragraphVariants}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  whileHover={{ scale: 1.01, color: "#374151" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  Where there is a will, there is only the A–Z way…
+                  Enable customers with the knowledge capable to develop and enhance
+                  their skills to create different endeavors to be a professional.
+                  We offer flexible trainings, customized solutions designed to educate,
+                  inspire, and motivate individuals and businesses to achieve your goals
+                  and aspirations.
+                </motion.p>
+
+                {/* Values */}
+                <motion.h2
+                  className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 relative"
+                  variants={headingVariants}
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                  whileHover={{ scale: 1.02, color: "#374151" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <span className="relative z-10">Values</span>
+                  <motion.div
+                    className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-stone-600 to-slate-700 rounded-full"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "35%" }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.7 }}
+                  />
+                </motion.h2>
+
+                <motion.p
+                  className="text-gray-700 leading-relaxed mb-6"
+                  variants={paragraphVariants}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  whileHover={{ scale: 1.01, color: "#374151" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  We at <span className="font-semibold text-slate-800">QuickLearn Systems</span>,
+                  fully committed to help you succeed.
+                </motion.p>
+
+                <motion.ul
+                  className="list-none pl-0 text-gray-700 space-y-3"
+                  variants={staggerTextVariants}
+                >
+                  {[
+                    { text: "Quality", desc: "teaching and learning." },
+                    { text: "Respect", desc: "and Care for all." },
+                    { text: "Customer Satisfaction", desc: "is our priority." },
+                    { text: "Continuous improvement", desc: "focus." },
+                    { text: "Long-term relationships", desc: "with our customers." }
+                  ].map((item, index) => (
+                    <motion.li
+                      key={index}
+                      variants={wordSlideVariants}
+                      className="flex items-start gap-3 group"
+                      whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
-                    />
-                    <span>
-                      <span className="font-semibold text-slate-800 group-hover:text-stone-700 transition-colors duration-200">
-                        {item.text}
-                      </span>{" "}
-                      {item.desc}
-                    </span>
-                  </motion.li>
-                ))}
-              </motion.ul>
-            </motion.div>
+                    >
+                      <motion.div
+                        className="w-2 h-2 bg-gradient-to-r from-slate-700 to-stone-800 rounded-full mt-2 flex-shrink-0"
+                        whileHover={{ scale: 1.5 }}
+                        transition={{ duration: 0.2 }}
+                      />
+                      <span>
+                        <span className="font-semibold text-slate-800 group-hover:text-stone-700 transition-colors duration-200">
+                          {item.text}
+                        </span>{" "}
+                        {item.desc}
+                      </span>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+              </motion.div>
+            </Grid>
 
             {/* Team Image - Sticky positioned */}
-            <motion.div
-              className="lg:col-span-4 sticky top-24"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={imageVariants}
-            >
-              <motion.img
-                src="/team.jpg"
-                alt="Our Team"
-                className="w-full rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              />
-
-              {/* Values highlight */}
+            <Grid item xs={12} md={4}>
               <motion.div
-                className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-xl p-4 border border-slate-200"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
+                className="sticky top-24"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={imageVariants}
               >
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-slate-800">100%</div>
-                  <div className="text-xs text-slate-600 font-medium">Satisfaction</div>
-                </div>
+                <motion.img
+                  src="/team.jpg"
+                  alt="Our Team"
+                  className="w-full rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                />
+
+                {/* Values highlight */}
+                <motion.div
+                  className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-xl p-4 border border-slate-200"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-slate-800">100%</div>
+                    <div className="text-xs text-slate-600 font-medium">Satisfaction</div>
+                  </div>
+                </motion.div>
               </motion.div>
-            </motion.div>
+            </Grid>
+
           </Grid>
-        </div>
+        </Container>
       </section>
 
+      {/* Footer */}
       <Footer />
+
     </div>
-    </Grid>
   );
 }

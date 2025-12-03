@@ -20,17 +20,15 @@ export default function ClientHomeWrapper() {
       <Header onGetStartedClick={scrollToCourses} />
 
       {/* Hero Section */}
-      <div className="w-full">
-        <Hero
-          onCategorySelect={(category) => {
-            setActiveFilter(category);
-            scrollToCourses();
-          }}
-        />
-      </div>
+      <Hero
+        onCategorySelect={(category) => {
+          setActiveFilter(category);
+          scrollToCourses();
+        }}
+      />
 
       {/* Courses Section */}
-      <div ref={coursesRef} className="w-full">
+      <div ref={coursesRef}>
         <CoursesWeOffer activeFilterr={activeFilter} />
       </div>
 
