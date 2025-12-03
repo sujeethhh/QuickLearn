@@ -1,9 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Grid from "@mui/material/Grid";
-import Container from "@mui/material/Container";
-
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import CoursesWeOffer from "@/components/CoursesWeOffer";
@@ -17,34 +14,26 @@ export default function ClientHomeWrapper() {
   };
 
   return (
-    <Grid container direction="column" spacing={6}>
+    <div className="flex flex-col w-full">
       
       {/* Header */}
-      <Grid item xs={12}>
-        <Header onGetStartedClick={scrollToCourses} />
-      </Grid>
+      <Header onGetStartedClick={scrollToCourses} />
 
       {/* Hero Section */}
-      <Grid item xs={12}>
-        <Container maxWidth="xl">
-          <Hero
-            onCategorySelect={(category) => {
-              setActiveFilter(category);
-              scrollToCourses();
-            }}
-          />
-        </Container>
-      </Grid>
+      <div className="w-full">
+        <Hero
+          onCategorySelect={(category) => {
+            setActiveFilter(category);
+            scrollToCourses();
+          }}
+        />
+      </div>
 
       {/* Courses Section */}
-      <Grid item xs={12}>
-        <div ref={coursesRef}>
-          <Container maxWidth="lg">
-            <CoursesWeOffer activeFilterr={activeFilter} />
-          </Container>
-        </div>
-      </Grid>
+      <div ref={coursesRef} className="w-full">
+        <CoursesWeOffer activeFilterr={activeFilter} />
+      </div>
 
-    </Grid>
+    </div>
   );
 }
